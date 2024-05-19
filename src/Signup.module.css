@@ -1,0 +1,99 @@
+/* src/Signup.module.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #03395f, #027184);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .signupContainer {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+  }
+  
+  .signupBox {
+    background: #03395f;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  .signupBox h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .inputGroup {
+    position: relative;
+    margin-bottom: 30px;
+  }
+  
+  .inputGroup input {
+    width: 98%;
+    padding: 10px 10px 10px 0px;
+    font-size: 16px;
+    color: #fff;
+    background: #027184;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  .inputGroup label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    color: #fff;
+    font-size: 16px;
+    pointer-events: none;
+    transform: translateY(-50%);
+    transition: all 0.5s ease;
+  }
+  
+  .inputGroup input:focus ~ label,
+  .inputGroup input:valid ~ label {
+    top: -5px;
+    left: 10px;
+    color: #fff;
+    font-size: 12px;
+  }
+  
+  .signupButton {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #027184;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .signupButton:hover {
+    background: #027184;
+  }
+  
+  .loginText {
+    text-align: center;
+    margin-top: 20px;
+    color: #fff;
+  }
+  
+  .loginText a {
+    color: #027184;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .loginText a:hover {
+    color: #027184;
+  }
+  
