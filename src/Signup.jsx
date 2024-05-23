@@ -21,6 +21,10 @@ const Signup = () => {
             <input type="password" id="password" name="password" required />
             <label htmlFor="password">Password</label>
           </div>
+          <div className={styles.inputGroup}>
+            <input type="password" id="password" name="password" required />
+            <label htmlFor="password">Confirm Password</label>
+          </div>
           <button type="submit" className={styles.signupButton}>Sign Up</button>
           <p className={styles.loginText}>Already have an account? <a href="/Login">Login</a></p>
         </form>
