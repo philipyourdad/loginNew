@@ -1,25 +1,57 @@
 // src/Login.js
 
-import React from 'react';
-import styles from '/src/Login.module.css';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { supabase } from './supabaseClient';
+import styles from './Login.module.css';
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+
+    if (error) {
+      setError(error.message);
+    } else {
+      navigate('/dashboard'); // Redirect to a dashboard or home page after login
+    }
+  };
 
   return (
     <div className={styles.loginContainer}>
       <div className={styles.loginBox}>
         <h2>LOGIN</h2>
-        <form>
+        <form onSubmit={handleLogin}>
           <div className={styles.inputGroup}>
-            <input type="text" id="username" name="username" required />
-            <label htmlFor="username">Username</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <label htmlFor="email">Email</label>
           </div>
           <div className={styles.inputGroup}>
-            <input type="password" id="password" name="password" required />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
             <label htmlFor="password">Password</label>
           </div>
+          {error && <p className={styles.error}>{error}</p>}
           <button type="submit" className={styles.loginButton}>Login</button>
-          <p className={styles.signupText}>Don't have an account? <a href="Signup">Sign Up</a></p>
+          <p className={styles.signupText}>Don't have an account? <Link to="/signup">Sign Up</Link></p>
         </form>
       </div>
     </div>
@@ -27,6 +59,3 @@ const Login = () => {
 }
 
 export default Login;
-
-
-
